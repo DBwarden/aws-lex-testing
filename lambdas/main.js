@@ -4,8 +4,9 @@ var lambda = new aws.Lambda({
 });
 
 lambda.invoke({
-    FunctionName: 'name_of_your_lambda_function',
-    Payload: JSON.stringify(event, null, 2) // pass params
+    FunctionName: 'mainCall',
+    Payload: JSON.stringify(event, null, 2), // pass params
+    InvocationType: 'Event'
 }, function (error, data) {
     if (error) {
         context.done('error', error);
